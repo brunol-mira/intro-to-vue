@@ -1,0 +1,23 @@
+{
+  "name": "intro-to-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunol-mira/intro-to-vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunol-mira/intro-to-vue/issues"
+  },
+  "homepage": "https://github.com/brunol-mira/intro-to-vue#readme",
+  "dependencies": {
+    "verte": "^0.0.12"
+  }
+}
