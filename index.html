@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Vue Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Bruno Lapierre">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/product_style.css">
+    <script src="javascript/vue.js"></script>
+</head>
+<title>Vue Tutorial</title>
+<body>
+
+<div class="nav-bar"></div>
+
+<div id="app">
+    <div class="product">
+        <div class="product-image">
+            <a v-bind:href="imageUrl">
+                <img v-bind:src="image" />
+            </a>
+        </div>
+        <div class="product-info">
+            <h1>{{ sale }}</h1>
+            <p v-if="inStock">In Stock</p>
+            <p v-else>Out of Stock</p>
+<!--            <p>{{ sale }}</p>-->
+
+<!--            <p v-if="inventory > 3">In Stock</p>-->
+<!--            <p v-else-if="inventory <= 8 && inventory > 0">All most sold out!</p>-->
+<!--            <p v-else v-bind:class="{'out-of-stock': !inStock}">Out of Stock</p>-->
+
+            <ul>
+                <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+
+<!--            v-bind:style="{ 'background-color': variant.color }" -->
+<!--            [or] bindging vue styling                            -->
+<!--            v-bind:style="{ backgroundColor: variant.color }"    -->
+
+
+<!--            v-bind:style="variant.variantStyleObject"                                        -->
+<!--            [or]  bindging with an array                                                      -->
+<!--            v-bind:style="[variant.variantStyleObjectColor, variant.variantStyleObjectSize]" -->
+
+
+<!--            v-on:mouseover="updateProductImage(variant.variantColor)" -->
+<!--            [or]                                                      -->
+
+            <div v-for="(variant, index) in variants"
+                 v-bind:key="variant.id"
+                 class="color-box"
+                 v-bind:style="[variant.variantStyleObjectColor, variant.variantStyleObjectSize]"
+                 v-on:mouseover="updateProductImage(index)"
+            >
+
+<!--                <p v-on:mouseover="updateProductImage(variant.variantColor)"></p>-->
+<!--                <ul>-->
+<!--                    <li v-for="size in variant.sizes">{{ size }}</li>-->
+<!--                </ul>-->
+            </div>
+
+<!--            <span v-if="onSale">On Sale!</span>-->
+
+            <button v-on:click="addToCart" v-bind:disabled="!inStock"  v-bind:class="{disabledButton: !inStock}">
+                Add to cart
+            </button>
+            <button class="warning" v-on:click="removeFromCart">
+                Remove From cart
+            </button>
+
+            <div class="cart">
+                <p>Cart({{ cart }})</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="javascript/main.js"></script>
+</body>
+</html>
